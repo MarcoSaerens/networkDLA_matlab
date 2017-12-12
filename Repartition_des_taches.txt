@@ -1,0 +1,12 @@
+Repartition des tâches
+
+Chapitre 1:		done
+Chapitre 2:		done
+Chapitre 3:		done
+Chapitre 4:		Marco
+Chapitre 5:		François
+Chapitre 6:		Bertrand
+Chapitre 7:		Guillaume
+Chapitre 8:		Sylvain
+Chapitre 9:		Pierre
+Chapitre 10:		Guillaume
