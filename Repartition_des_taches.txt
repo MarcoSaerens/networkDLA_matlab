@@ -9,4 +9,4 @@ Chapitre 6:		Bertrand
 Chapitre 7:		Guillaume
 Chapitre 8:		Sylvain
 Chapitre 9:		Pierre
-Chapitre 10:	done
+Chapitre 10:	  done
