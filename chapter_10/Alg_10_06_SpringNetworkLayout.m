@@ -82,7 +82,7 @@ function X = Alg_10_06_SpringNetworkLayout(D, X_0, l_0, k)
             end
         end
 
-        %%% Perform a min search of a BFGS quasi-Newton step on minus likelihood
+        %%% Perform a min search of a BFGS quasi-Newton step on springs energy
                
         % Unfold gradient
         gradient_unfold = Gradient_X(:);
