@@ -84,7 +84,7 @@ function X = Alg_10_07_ForcedirectedLayoutGraph(W, w, X_0, a, r)
             end
         end
         
-        %%% Perform a min search of a BFGS quasi-Newton step on minus likelihood
+        %%% Perform a min search of a BFGS quasi-Newton step on potential energy
                
         % Unfold gradient
         gradient_unfold = Gradient_X(:);
