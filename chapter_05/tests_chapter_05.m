@@ -7,6 +7,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<<<<<< HEAD
 % number of nodes for tests
 n = 10;
 
@@ -17,12 +18,27 @@ A = rand(n);
 A(1:n+1:end) = 0;
 A(A < 0.4) = 0;
 
+=======
+%% Test 1
+
+% A simple, connected, directed, weighted adjacency matrix with n nodes
+n = 10;
+A = rand(n);
+A(A < 0.4) = 0;
+
+%A =[0 0 0 0 0 0 0 0 0 0 0; 0 0 1 0 0 0 0 0 0 0 0; 0 1 0 0 0 0 0 0 0 0 0; 1 1 0 0 0 0 0 0 0 0 0; 0 1 0 1 0 1 0 0 0 0 0; 0 1 0 0 1 0 0 0 0 0 0; 0 1 0 0 1 0 0 0 0 0 0; 0 1 0 0 1 0 0 0 0 0 0; 0 1 0 0 1 0 0 0 0 0 0; 0 0 0 0 1 0 0 0 0 0 0; 0 0 0 0 1 0 0 0 0 0 0];
+%A = [0 1 0 0 0 1; 0 0 1 1 0 0; 0 0 0 1 1 1; 1 0 0 0 0 0; 0 0 0 0 0 0; 1 0 0 0 0 0];
+
+%A = [0 1 1 1; 0 0 1 1; 0 1 0 0; 0 0 0 0]
+
+>>>>>>> cb7dcca0b644d58b4e3fcce4f38ceefe82ab1b83
 % the corresponding cost matrix
 C = 1 ./ A;
 
 % COMPUTE Alg_01_03_ShortestPathDistance(C)
 D = Alg_01_03_ShortestPathDistance(C);
 % TEST Alg_05_01_ProximityPrestigeScores(D)
+<<<<<<< HEAD
 Alg_05_01_ProximityPrestigeScores(D)
 
 %% Test 2
@@ -93,3 +109,6 @@ A(A < 0.4) = 0;
 
 % TEST Alg_05_07_HITS(A)
 Alg_05_07_HITS(A)
+=======
+Alg_05_01_ProximityPrestigeScores(D)
+>>>>>>> cb7dcca0b644d58b4e3fcce4f38ceefe82ab1b83
