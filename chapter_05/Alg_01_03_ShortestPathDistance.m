@@ -44,8 +44,8 @@ D = C;
 D(1:n+1:end) = 0; 
 
 % Iterations    
-for t = 1:n
-     D = min( D, (D(:, t)*(e') + e*D(t, :)) );
+for k = 1:n
+     D = min( D, (D(:, k)*(e') + e*D(k, :)) );
 end
 
 end

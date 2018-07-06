@@ -7,14 +7,18 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Test 3
+%% Test 2-3
 
-% A simple, connected, directed, weighted graph adjacency matrix with 4 nodes
+% A simple, connected, directed, weighted adjacency matrix with n nodes
+n = 10;
 A = rand(n);
 A(A < 0.4) = 0;
  
 % the corresponding cost matrix
 C = 1 ./ A;
+
+% TEST Alg_01_02_ShortestPathDistanceElementwise(C)
+Alg_01_02_ShortestPathDistanceElementwise(C)
 
 % TEST Alg_01_03_ShortestPathDistance(C)
 Alg_01_03_ShortestPathDistance(C)

@@ -1,4 +1,4 @@
-function D = Alg_01_03_ShortestPathDistance(C)
+function D = Alg_01_02_ShortestPathDistanceElementwise(C)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -10,17 +10,17 @@ function D = Alg_01_03_ShortestPathDistance(C)
 %         Cambridge University Press.
 %
 % Description: Computes the shortest path directed distances between all 
-%              pairs of nodes by Floyd-Warshall algorithm, in matrix form.
+%              pairs of nodes by Floyd-Warshall algorithm, in elementwise form.
 %
 % INPUT:
 % -------
 % - C : the (n x n) nonnegative cost matrix, representing 
-%       a directed weighted graph. C(i,j) == Inf <=> A(i,j) == 0 
+%       a directed weighted graph. C(i,j) == Inf <=> A(i,j) == 0.
 % 
 % OUTPUT:
 % -------
 % - D : the (n x n) directed shortest path distance matrix between every 
-%        pair of nodes.
+%       pair of nodes.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -34,19 +34,18 @@ end
 
 %% Algorithm
 
-% Column vector full of 1s
-e = ones(n,1); 
-
 % Initialize distances to costs
 D = C;
 
 % Set diagonal to zero
-D(1:n+1:end) = 0; 
+D(1:n+1:end) = 0;
 
-% Iterations    
-for t = 1:n
-     D = min( D, (D(:, t)*(e') + e*D(t, :)) );
-end
-
+% Iterations
+for t = 1:n % enumerate intermediate nodes
+    for i = 1:n % enumerate starting nodes
+        for j = 1:n % enumerate ending nodes
+            D(i,j) = min( D(i,j), (D(i,t) + D(t,j)) );
+        end
+    end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
