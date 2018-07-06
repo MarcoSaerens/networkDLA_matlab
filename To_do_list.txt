@@ -1,0 +1,12 @@
+    TASKS
+
+Chapter 1: done
+Chapter 2: done
+Chapter 3: done
+Chapter 4: Marco
+Chapter 5: François
+Chapter 6: Bertrand
+Chapter 7: partially done (need checking + standardization of algorithms 9 & 10)
+Chapter 8: Sylvain
+Chapter 9: Pierre
+Chapter 10:  done
