@@ -1,7 +1,6 @@
 function sim = Alg_02_01_LocalSimilarityMeasures(A, i, k)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 % Authors: Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
@@ -27,7 +26,6 @@ function sim = Alg_02_01_LocalSimilarityMeasures(A, i, k)
 %              sim.Dice    - Dice coefficient.
 %              sim.prohub  - hub promoted index.
 %              sim.dehub   - hub depressed index.
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 

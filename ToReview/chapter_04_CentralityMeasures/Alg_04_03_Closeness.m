@@ -27,6 +27,7 @@ function [cc_k, cc_tc, cc_ks, cc_es] = Alg_04_03_Closeness(A, alpha_k, alpha_e)
 % - cc_ks : (n x 1) vector of the Katz subgraph centrality
 % - cc_es : (n x 1) vector of the exponential subgraph centrality
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 [n, nc] = size(A);
 if n ~= nc
   error('affinity matrix not square');
@@ -34,6 +35,7 @@ elseif A ~= A'
   error('adjacency matrix not symmetric');
 end
 
+%% Algorithm
 e = ones(n, 1);
 I = eye(n);
 K = inv(I - alpha_k * A) - I; % Katz similarity
@@ -49,3 +51,4 @@ cc_ks = diag(K);
 cc_es = diag(M);
 
 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

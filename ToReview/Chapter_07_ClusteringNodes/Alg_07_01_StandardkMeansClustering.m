@@ -1,7 +1,6 @@
 function U = Alg_07_01_StandardkMeansClustering(D, m)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %
     % Authors: Gilissen & Edouard Lardinois, revised by Guillaume Guex (2017).
     %
     % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
@@ -20,8 +19,7 @@ function U = Alg_07_01_StandardkMeansClustering(D, m)
     % -------
     % - U : the (n x m) cluster membership matrix with u_ik = 1 if node i 
     %       belongs to cluster k, zero otherwise
-    %
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %% Checks of arguments
     
@@ -78,3 +76,4 @@ function U = Alg_07_01_StandardkMeansClustering(D, m)
     end
     
 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,8 +1,7 @@
 function l_hat = Alg_06_01_SimpleRegularizationClassification(A, Y, lambda)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Authors: Guillaume Guex (2017).
+%Authors: Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
@@ -21,8 +20,7 @@ function l_hat = Alg_06_01_SimpleRegularizationClassification(A, Y, lambda)
 % OUTPUT:
 % -------
 % - l_hat : a (n x 1) class label vector containing the predicted class.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 
 

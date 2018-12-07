@@ -2,7 +2,6 @@
 function D = Alg_01_03_ShortestPathDistance(C)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 % Authors: Marco Saerens (2014), revised by Ilkka Kivimaki 
 %          & Guillaume Guex (2017).
 %
@@ -22,8 +21,7 @@ function D = Alg_01_03_ShortestPathDistance(C)
 % -------
 % - D : the (n x n) directed shortest path distance matrix between every 
 %        pair of nodes.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 
 
@@ -93,7 +91,7 @@ e = ones(n,1);
 
 % Initialize distances to costs
 D = C;
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Set diagonal to zero
 D(1:n+1:end) = 0; 
 

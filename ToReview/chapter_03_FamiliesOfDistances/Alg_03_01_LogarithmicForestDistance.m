@@ -1,8 +1,7 @@
 function D = Alg_03_01_LogarithmicForestDistance(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Authors: Maxime Duyck revised by Guillaume Guex (2017).
+%Authors: Maxime Duyck revised by Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
@@ -19,8 +18,7 @@ function D = Alg_03_01_LogarithmicForestDistance(A, alpha)
 % OUTPUT:
 % -------
 % - D: The (n x n) logarithmic forest distance matrix
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 
  

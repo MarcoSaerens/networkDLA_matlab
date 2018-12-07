@@ -1,7 +1,6 @@
 function D = Alg_01_02_ShortestPathDistanceElementwise(C)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 % Authors: Marco Saerens (2014), revised by Ilkka Kivimaki 
 %          & Guillaume Guex (2017).
 %
@@ -21,7 +20,6 @@ function D = Alg_01_02_ShortestPathDistanceElementwise(C)
 % -------
 % - D : the (n x n) directed shortest path distance matrix between every 
 %       pair of nodes.
-%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 

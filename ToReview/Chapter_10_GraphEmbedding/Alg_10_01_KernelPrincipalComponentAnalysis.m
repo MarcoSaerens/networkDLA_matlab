@@ -1,7 +1,6 @@
 function X = Alg_10_01_KernelPrincipalComponentAnalysis(K, p)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
 % Authors: Gilissen & Edouard Lardinois, revised by Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
@@ -22,8 +21,7 @@ function X = Alg_10_01_KernelPrincipalComponentAnalysis(K, p)
 % -------
 % - X : the (n x p) data matrix containing the coordinates of the nodes 
 %       for the embedding.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments
 
@@ -58,3 +56,4 @@ U = U(:, Ind);
 X = U * sqrt(Lambda);
 
 end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

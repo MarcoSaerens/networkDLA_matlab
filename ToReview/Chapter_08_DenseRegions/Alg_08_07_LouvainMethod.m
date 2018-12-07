@@ -1,4 +1,6 @@
 function U = Alg_08_07_LouvainMethod(A,mix)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Authors: Ilkka Kivimaki (2015),revised by Sylvain Courtain (2017).
 % Direct source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
 % "Algorithms and models for network data and link analysis".
