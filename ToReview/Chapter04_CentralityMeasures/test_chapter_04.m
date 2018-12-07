@@ -8,12 +8,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % number of elements for tests
-n = 5;
+n = 10;
 
 % utilities
-e = ones(n, 1);
-I = eye(n);
-H = I - e*e'/n;
+e = ones(n, 1); % vector of ones
+I = eye(n); % identity matrix
+H = I - e*e'/n; % centering matrix
+eps = 10^(-100); % precision
+
+rng(72) % set seed of random generator
 
 % An adjacency matrix for a connected undirected graph with n nodes
 A = rand(n);
@@ -26,7 +29,10 @@ sprad = eigs(A, 1); % spectral radius of A
 
 % Test 1 Alg_04_02_Brandes(C)
 
+C = 1./(A + eps); % compute cost matrix
+
 addpath('Alg_04_02_Brandes');
+bet = Alg_04_02_Brandes(C)
 bet = Alg_04_02_Brandes(1./A)
 rmpath('Alg_04_02_Brandes');
 
@@ -41,4 +47,18 @@ pExpm = 1.0;
 % TEST 3 Alg_04_04_RandomEccentricity(A)
 ec = Alg_04_04_RandomEccentricity(A)
 
+% TEST 8 Alg_04_08_BagOfPathsBetweenness(A, C, theta)
+
+theta = 2;
+C = 1./(A + eps); % compute cost matrix
+
+bopBet = Alg_04_08_BagOfPathsBetweenness(A, C, theta)
+
+% TEST 9 Alg_04_09_BagOfPathsGroupBetweenness(A, C, hi, hk, theta)
+
+h1 = zeros(n,1); h2 = zeros(n,1);
+h1(1) = 1; h1(2) = 1;
+h2(7) = 1; h2(8) = 1;
+
+bopGBet = Alg_04_09_BagOfPathsGroupBetweenness(A, C, h1, h2, theta)
 
