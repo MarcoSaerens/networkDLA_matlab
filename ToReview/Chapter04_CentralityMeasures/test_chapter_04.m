@@ -33,7 +33,6 @@ C = 1./(A + eps); % compute cost matrix
 
 addpath('Alg_04_02_Brandes');
 bet = Alg_04_02_Brandes(C)
-bet = Alg_04_02_Brandes(1./A)
 rmpath('Alg_04_02_Brandes');
 
 % TEST 2 Alg_04_03_Closeness(A, p1, p2)
