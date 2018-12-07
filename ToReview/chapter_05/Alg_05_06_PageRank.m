@@ -1,40 +1,37 @@
 function x = Alg_05_06_PageRank(A, u, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Authors: François Fouss revised by Marco Saerens (2017).
 %
-% Authors: FranÁois Fouss revised by XXXX (2017).
-%
-% Source: FranÁois Fouss, Marco Saerens and Masashi Shimbo (2016).
+% Source: François Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
 %         Cambridge University Press.
 %
 % Description: Computes the vector containing the PageRank with
-% personalization scores of all the nodes of a directed graph.
+% personalization scores of all the nodes on a directed, weighted,
+% graph.
 %
 % INPUT:
-% ------- 
-% - A : the (n x n) weighted adjacency matrix of a directed, strongly 
-% connected graph G, were dangling nodes were made absorbing.
-% - u : the n-dimensional nonnegative personalization (column) normalized
-% vector.
-% - alpha : the parameter to assure regularity of G, with 0 < alpha < 1. 
+% ------ 
+% - A: the (n x n) adjacency matrix of a weighted directed graph G,
+% where dangling nodes were made absorbing.
+% - u: the n-dimensional nonnegative personalization (column) vector,
+% normalized to sum to one.
+% - alpha: the parameter to assure regularity of G, with 0 < alpha < 1. 
 % 
 % OUTPUT:
 % -------
-% - x : The (n x 1) PageRank score vector
-%
+% - x: the (n x 1) PageRank score vector.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Checks of arguments 
  
-% Check if A is a squared matrix 
+%% Check if A is a square matrix 
 [n, m] = size(A);
 if n ~= m
-    error('The adjacency matrix is not squared')
+    error('The adjacency matrix is not square')
 end
 
 % Check if dangling nodes were made absorbing
-d  = sum(A,2); % Outdegree vector
+d  = sum(A,2); % outdegree vector
 if min(d) == 0
     error('The dangling nodes were not all made absorbing')
 end
@@ -51,34 +48,26 @@ end
 
 
 %% Algorithm
-
-% A vector of ones
-e = ones(n,1);
+e = ones(n,1); % a vector of ones
 
 % The diagonal matrix containing the outdegree of the nodes
-D  = diag(A*e);
+D = diag(A*e);
 
-% The transition probability matrix
-P = D^-1 * A;
+P = D^-1 * A; % the transition probability matrix
+x = A' * e / sum(abs(A' * e)); % initialization of x by normalized indegrees
 
-% Initialization of x by indegrees
-x = A' * e / sum(abs(A' * e));
+prec = 0.000001; % defining the stop condition for convergence
+stop = Inf; % initializing the stop variable monitoring convergence
 
-% Defining the stop condition for convergence
-prec = 0.00001;
-
-% Initializing the stop variable
-stop = Inf;
-
-while (stop > prec) % Test of the convergence
+while (stop > prec) % test of convergence
     old_x = x;
     
     % Update the score vector x
     x = alpha * P' * x + (1-alpha) * u;
-    % Normalize the score vector x
+    % Normalize the score vector x (not really needed; included for safety)
     x = x / sum(x);
 
     % Update the stop variable
     stop = sum(abs(x - old_x)) / sum(old_x);
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
