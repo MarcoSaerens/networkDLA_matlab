@@ -29,9 +29,9 @@ function [cc_k, cc_tc, cc_ks, cc_es] = Alg_04_03_Closeness(A, alpha_k, alpha_e)
 
 [n, nc] = size(A);
 if n ~= nc
-  error('affinity matrix not square');
+    error('affinity matrix not square');
 elseif ~isequal(A, A')
-  error('adjacency matrix not symmetric');
+    error('adjacency matrix not symmetric');
 end
 
 %% Algorithm

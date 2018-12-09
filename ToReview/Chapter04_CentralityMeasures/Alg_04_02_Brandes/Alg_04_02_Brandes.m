@@ -102,14 +102,14 @@ while Q.size ~= 0
     updated = updatedOrTied & (altDist < dist);
     
     for k = find(updated)
-	sigma(k) = 0;
-	pred(k, :) = 0;
-	if dist(k) == Inf
-  	    Q.insert(k, altDist(k));
-	else
-  	    Q.decreaseKey(k, altDist(k));
-	end
-	dist(k) = altDist(k);
+        sigma(k) = 0;
+        pred(k, :) = 0;
+        if dist(k) == Inf
+            Q.insert(k, altDist(k));
+        else
+            Q.decreaseKey(k, altDist(k));
+        end
+        dist(k) = altDist(k);
     end
   
     pred(updatedOrTied, j) = 1;
