@@ -1,6 +1,5 @@
 function ec = Alg_04_04_RandomEccentricity(A)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Random eccentricity scores of nodes
 %
 % Author: Masashi Shimbo
 %
@@ -28,8 +27,10 @@ end
 L = diag(sum(A, 1)) - A; % graph Laplacian
 
 % P = inv(L + ones(n, n) / n) - ones(n, n) / n; % its pseudoinverse
-P = pinv(L); % we use MATLAB's builtin pinv(), which is more stable
+P = pinv(L); % MATLAB's builtin pinv() is more stable
 
 ec = diag(P); % eccentricity
+
 end
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
