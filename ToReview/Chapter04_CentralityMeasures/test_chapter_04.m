@@ -22,10 +22,10 @@ rng(72) % set seed of random generator
 A = rand(n);
 A = A > 0.6325; % sparsify & binarize
 A(1:n+1:end) = 0; % nullify main diagonal (remove self-loops)
-% A(2:n+1:end) = 1; % ensure connectedness
-A = real(A | A'); % symmetrize
-
+A(2:n+1:end) = 1; % ensure connectedness
+A = double(A | A'); % symmetrize
 % A
+
 sprad = eigs(A, 1); % spectral radius of A
 
 % Test 2 Alg_04_02_Brandes(C)
