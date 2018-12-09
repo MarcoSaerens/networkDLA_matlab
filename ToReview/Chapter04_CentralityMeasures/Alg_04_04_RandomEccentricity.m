@@ -16,12 +16,14 @@ function ec = Alg_04_04_RandomEccentricity(A)
 % OUTPUT:
 % -------
 % - ec : (n x 1) vector of random eccentricity scores of nodes
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 [n, nc] = size(A);
 if n ~= nc
-  error('affinity matrix not square');
-elseif A ~= A'
-  error('affinity matrix not symmetric');
+    error('affinity matrix not square');
+elseif ~isequal(A, A')
+    error('affinity matrix not symmetric');
 end
 
 L = diag(sum(A, 1)) - A; % graph Laplacian
