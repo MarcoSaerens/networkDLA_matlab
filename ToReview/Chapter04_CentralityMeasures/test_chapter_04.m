@@ -61,3 +61,10 @@ h2(7) = 1; h2(8) = 1;
 
 bopGBet = Alg_04_09_BagOfPathsGroupBetweenness(A, C, h1, h2, theta)
 
+% TEST 13 Alg_04_13_CommunicabilityCriticality(A)
+
+cr_communicability = Alg_04_13_CommunicabilityCriticality(A)
+
+% TEST 14 Alg_04_14_KirchhoffCriticality(A)
+
+cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A)
