@@ -48,11 +48,11 @@ rmpath('Alg_04_02_Brandes');
 pKatz = 0.5 * (1 / sprad);
 pExpm = 1.0;
 
-[cc_k, cc_tc, cc_ks, cc_es] = Alg_04_03_Closeness(A, pKatz, pExpm);
+[cc_k, cc_tc, cc_ks, cc_es] = Alg_04_03_Closeness(A, pKatz, pExpm)
 
 %% TEST 4 Alg_04_04_RandomEccentricity(A)
 
-ec = Alg_04_04_RandomEccentricity(A);
+ec = Alg_04_04_RandomEccentricity(A)
 
 %% TEST 8 Alg_04_08_BagOfPathsBetweenness(A, C, theta)
 
@@ -67,7 +67,7 @@ h1 = zeros(n,1); h2 = zeros(n,1);
 h1(1) = 1; h1(2) = 1;
 h2(7) = 1; h2(8) = 1;
 
-bopGBet = Alg_04_09_BagOfPathsGroupBetweenness(A, C, h1, h2, theta);
+bopGBet = Alg_04_09_BagOfPathsGroupBetweenness(A, C, h1, h2, theta)
 
 %% TEST 10 Alg_04_10_RandomizedShortestPathBetweenness(Pref, C, theta)
 
@@ -77,14 +77,14 @@ d = A * ones(n,1); % outdegree vector
 Dinv = diag(1./d); % outdegree diagonal matrix
 Pref = Dinv * A; % transition probabilities matrix of the reference ransom walk
 
-rspBet = Alg_04_10_RandomizedShortestPathBetweenness(Pref, C, theta);
+rspBet = Alg_04_10_RandomizedShortestPathBetweenness(Pref, C, theta)
 
 %% TEST 11 Alg_04_11_ApproximateShortestPathBetweenness(A, C, theta)
 
-theta = 2;
+theta = 20;
 C = 1./(A + eps); % compute cost matrix
 
-approxSPBet = Alg_04_11_ApproximateShortestPathBetweenness(A, C, theta);
+approxSPBet = Alg_04_11_ApproximateShortestPathBetweenness(A, C, theta)
 
 %% TEST 12 Alg_04_12_RandomizedShortestPathNetFlowBetweenness(Pref, C, theta)
 
@@ -98,10 +98,10 @@ rspNetBet  = Alg_04_12_RandomizedShortestPathNetFlowBetweenness(Pref, C, theta)
 
 %% TEST 13 Alg_04_13_CommunicabilityCriticality(A)
 
-cr_communicability = Alg_04_13_CommunicabilityCriticality(A);
+cr_communicability = Alg_04_13_CommunicabilityCriticality(A)
 
 %% TEST 14 Alg_04_14_KirchhoffCriticality(A)
 
-cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A);
+cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

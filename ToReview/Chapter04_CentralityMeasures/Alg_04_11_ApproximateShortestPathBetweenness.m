@@ -30,7 +30,7 @@ if n ~= m
     error('Matrix A must be square')
 end
 
-eps = 10^(-40); % tolerance level
+eps = 10^(-40); % tolerance level to be set by user
 
 % % Eventually normalize C
 % nEdges = sum(sum(A>eps)); % compute number of edges
