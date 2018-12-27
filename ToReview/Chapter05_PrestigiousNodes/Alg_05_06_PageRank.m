@@ -1,7 +1,7 @@
 function x = Alg_05_06_PageRank(A, u, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Authors: François Fouss revised by Marco Saerens (2017).
+% Authors: Francois Fouss revised by Marco Saerens (2017).
 %
 % Source: François Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
@@ -46,15 +46,14 @@ if alpha <= 0 || alpha >= 1
     error('The parameter to assure regularity of G must be between 0 and 1 (excluded)')
 end
 
-
 %% Algorithm
 e = ones(n,1); % a vector of ones
 
-% The diagonal matrix containing the outdegree of the nodes
-D = diag(A*e);
+d = A*e; % the vector containing the outdegree of the nodes
+Dinv = diag(1./d); % diagonal matrix containing outdegrees
 
-P = D^-1 * A; % the transition probability matrix
-x = A' * e / sum(abs(A' * e)); % initialization of x by normalized indegrees
+P = Dinv * A; % the transition probability matrix
+x = (A' * e) / sum(abs(A' * e)); % initialization of x by normalized indegrees
 
 prec = 0.000001; % defining the stop condition for convergence
 stop = Inf; % initializing the stop variable monitoring convergence
