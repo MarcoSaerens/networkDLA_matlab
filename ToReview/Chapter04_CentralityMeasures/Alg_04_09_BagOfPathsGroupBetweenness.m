@@ -39,12 +39,13 @@ if n ~= m
 end
 
 %% Algorithm
-D = diag(A*ones(n,1)); % the generalized outdegree matrix
-P_ref = D\A; % the reference transition probabilities matrix (inv(D)*A)
+d = A * ones(n,1); % the outdegree vector
+Dinv = diag(1./d); % the inverse outdegree square matrix
+Pref = Dinv * A;  % the reference transition probabilities matrix
 
-W = P_ref .* exp(-theta*C); % computation of the W matrix
+W = Pref .* exp(-theta*C); % computation of the W matrix
 
-I  = eye(size(W)); % identity matrix (same size as W)
+I  = eye(n); % identity matrix (same size as W)
 Z  = (I - W)\I; % the fundamental matrix Z = inv(I - W)
 Z0 = Z - diag(diag(Z)); % set diagonal to zero
 
@@ -52,5 +53,5 @@ Dzinv = diag(diag(Z).^-1); % the inverse of diagonal matrix Dz
 
 % Computation of the BoP group betweenness
 gbet = Dzinv * ( (Z0' * hi) .* (Z0 * hk) );
-gbet = gbet / norm(gbet,1); % normalize the ruesult
+gbet = gbet / norm(gbet,1); % normalize the result
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

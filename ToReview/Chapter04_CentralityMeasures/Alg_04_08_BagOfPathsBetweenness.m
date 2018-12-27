@@ -35,13 +35,14 @@ if n ~= m
 end
 
 %% Algorithm
-D = diag(A*ones(n,1)); % the generalized outdegree matrix
-P_ref = D\A; % the reference transition probabilities matrix
+d = A * ones(n,1); % the outdegree vector
+Dinv = diag(1./d); % the inverse outdegree square matrix
+Pref = Dinv * A;  % the reference transition probabilities matrix
 
-W = P_ref .* exp(-theta*C); 
+W = Pref .* exp(-theta*C); % the W matrix
 
-I  = eye(size(W)); % identity matrix (same size than W)
-Z  = (I-W)\I; % the fundamental matrix Z
+I  = eye(n); % identity matrix (same size as W)
+Z  = (I - W)\I; % the fundamental matrix Z
 Z0 = Z - diag(diag(Z)); % set diagonal to zero
 
 Dzinv = diag(diag(Z).^-1); % the inverse of diagonal matrix Dz
