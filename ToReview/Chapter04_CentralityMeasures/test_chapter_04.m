@@ -104,4 +104,13 @@ cr_communicability = Alg_04_13_CommunicabilityCriticality(A)
 
 cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A)
 
+%% TEST 15 Alg_04_15_SpanningTreeEdgeCriticality(A)
+
+% % A particular example
+% A = [ 0  1  1;
+%       1  0  3;
+%       1  0  0 ];
+  
+Cr_st = Alg_04_15_SpanningTreeEdgeCriticality(A)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -7,19 +7,21 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% number of elements for tests
-n = 10;
+% Number of elements for tests
+n = 100;
 
-% utilities
+% Utilities
 e = ones(n, 1); % vector of ones
 I = eye(n,n); % identity matrix
 eps = 10^(-100); % precision
 
-rng(72) % set seed of random generator
+% Generate a random adjacency matrix
 
+% rng(72) % set seed of random generator
+% 
 % % An adjacency matrix for a connected unweighted, undirected, graph with n nodes
 % A = rand(n,n);
-% A = A > 0.6325; % sparsify & binarize
+% A = A > 0.95; % sparsify & binarize
 % A(1:n+1:end) = 0; % nullify main diagonal (remove self-loops)
 % A(2:n+1:end) = 1; % ensure connectedness
 % A = double(A | A'); % symmetrize A
@@ -58,5 +60,9 @@ A = [ 0 1 0 0 0 0 0 0 0 0 0 0   % 01
 
 k = 3;
 u = Alg_08_03_KCore(A, k)
+
+%% Test 4 Alg_08_04_CoreNumber(A)
+
+core = Alg_08_04_CoreNumber(A)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -7,18 +7,20 @@ function u = Alg_08_03_KCore(A, k)
 %         "Algorithms and models for network data and link analysis". 
 %         Cambridge University Press.
 %
-% Description: Computes the k-core of a weighted, undirected, strongly
+% Description: Computes the k-core of an unweighted, undirected, strongly
 % connected, graph G.
 %
 % INPUT:
 % ------
-% - A: the nxn adjacency matrix of an unweighted, undirected, strongly
-%   connected, graph G containing n nodes.
+% - A: the n x n adjacency matrix of an unweighted, undirected, strongly
+%   connected, graph G containing n nodes. It must contain 0s for missing links.
 % - k: the order of the desired core.
 %
 % OUTPUT:
 % ------- 
-% - u: a n × 1 membership vector indicating which node is part of the k-core. 
+% - u: a n × 1 membership list indicating which node is part of the k-core,
+%   that is, the nodes having a degree greater or equal to k, after removing
+%   recursively all the nodes with degree lesser than k. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Check if A is a square matrix 
@@ -44,6 +46,6 @@ while (size(d) > 0) & (min(d) < k)
     
     d = sum(A,2); % recompute degree of nodes
 end
-d'
+
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

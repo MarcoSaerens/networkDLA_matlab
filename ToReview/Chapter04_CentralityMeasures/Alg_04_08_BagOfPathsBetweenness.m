@@ -13,9 +13,9 @@ function [ bet ] = Alg_04_08_BagOfPathsBetweenness(A, C, theta)
 %
 % INPUT:
 % ------
-% - A: the nxn adjacency matrix of a weighted directed, strongly
+% - A: the nxn adjacency matrix of a weighted undirected,
 %   connected, graph G containing n nodes.
-% - C: the nxn cost matrix C associated to G (if not specified,
+% - C: the n x n cost matrix C associated to G (if not specified,
 %   the costs are the inverse of the affinities, but other 
 %   choices are possible).
 % - theta: the (scalar) inverse temperature parameter.
@@ -34,6 +34,7 @@ if n ~= m
     return;
 end
 
+I  = eye(n); % identity matrix (same size as A)
 %% Algorithm
 d = A * ones(n,1); % the outdegree vector
 Dinv = diag(1./d); % the inverse outdegree square matrix
@@ -41,7 +42,6 @@ Pref = Dinv * A;  % the reference transition probabilities matrix
 
 W = Pref .* exp(-theta*C); % the W matrix
 
-I  = eye(n); % identity matrix (same size as W)
 Z  = (I - W)\I; % the fundamental matrix Z
 Z0 = Z - diag(diag(Z)); % set diagonal to zero
 
@@ -52,4 +52,4 @@ Ndiv = 1./(N + eps); % matrix T contains elements 1/nij
 
 % Computation of the BoP betweenness
 bet = Dzinv * diag( Z0' * (Ndiv - diag(diag(Ndiv))) * Z0' );
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
