@@ -7,14 +7,8 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% number of elements for tests
+% Number of elements for randomply generated tests
 n = 10;
-
-% utilities
-e = ones(n, 1); % vector of ones
-I = eye(n,n); % identity matrix
-H = I - e*e'/n; % centering matrix
-eps = 10^(-100); % precision
 
 rng(72) % set seed of random generator
 
@@ -31,6 +25,34 @@ A = (A > 0.6325) .* A; % sparsify
 A(1:n+1:end) = 0; % nullify main diagonal (remove self-loops)
 A(2:n+1:end) = 1; % ensure connectedness
 A = (A + A')/2; % symmetrize A
+
+
+% Some other test examples
+
+% A = [ 0 1 1 0 0 0
+%       1 0 1 0 0 0
+%       1 1 0 1 0 0
+%       0 0 1 0 1 1
+%       0 0 0 1 0 1
+%       0 0 0 1 1 0 ];
+  
+ A = [ 0 1 1 1 0 0 0 0 0
+       1 0 1 1 0 0 0 0 0
+       1 1 0 1 0 0 0 0 0
+       1 1 1 0 1 0 0 0 0
+       0 0 0 1 0 1 0 0 0
+       0 0 0 0 1 0 1 1 1
+       0 0 0 0 0 1 0 1 1
+       0 0 0 0 0 1 1 0 1
+       0 0 0 0 0 1 1 1 0 ];
+
+n = length(A); % number of nodes
+
+% Utilities
+e = ones(n, 1); % vector of ones
+I = eye(n,n); % identity matrix
+H = I - e*e'/n; % centering matrix
+eps = 1.0e-100 % precision
 
 sprad = abs(eigs(A, 1)); % spectral radius of A
 
@@ -113,4 +135,10 @@ cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A)
   
 Cr_st = Alg_04_15_SpanningTreeEdgeCriticality(A)
 
+%% TEST 16 Alg_04_16_BagOfPathsCriticality(A, C, theta)
+
+theta = 1;
+C = 1./(A + eps); % compute cost matrix
+
+cr = Alg_04_16_BagOfPathsCriticality(A, C, theta)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

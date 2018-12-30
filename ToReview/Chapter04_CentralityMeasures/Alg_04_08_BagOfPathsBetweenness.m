@@ -8,13 +8,13 @@ function [ bet ] = Alg_04_08_BagOfPathsBetweenness(A, C, theta)
 %         Cambridge University Press.
 %
 % Description: The bag of paths approach for computing a betweenness
-% centrality measure on the nodes of a weighted directed, strongly
-% connected graph G withoutself-loops.
+% centrality measure on the nodes of a weighted directed or undirected,
+% strongly connected, graph G without self-loops.
 %
 % INPUT:
 % ------
-% - A: the nxn adjacency matrix of a weighted undirected,
-%   connected, graph G containing n nodes.
+% - A: the n x n adjacency matrix of a weighted directed or undirected,
+%   strongly connected, graph G containing n nodes.
 % - C: the n x n cost matrix C associated to G (if not specified,
 %   the costs are the inverse of the affinities, but other 
 %   choices are possible).
@@ -22,7 +22,7 @@ function [ bet ] = Alg_04_08_BagOfPathsBetweenness(A, C, theta)
 %
 % OUTPUT:
 % ------- 
-% - bet: the nx 1 bag of hitting paths betweenness vector bet  
+% - bet: the nx 1 bag of hitting paths betweenness vector  
 %   containing the probabilities that a randomly chosen path 
 %   visits an intermediate node.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
