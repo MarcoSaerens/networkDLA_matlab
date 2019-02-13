@@ -6,6 +6,8 @@
 % Description: Tests for all code in chapter 04.
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+format shortE
+format compact
 
 % Number of elements for randomply generated tests
 n = 10;
@@ -19,13 +21,12 @@ rng(72) % set seed of random generator
 % A(2:n+1:end) = 1; % ensure connectedness
 % A = double(A | A'); % symmetrize A
 
-% An adjacency matrix for a connected weighted undirected graph with n nodes
-A = rand(n,n);
-A = (A > 0.6325) .* A; % sparsify
-A(1:n+1:end) = 0; % nullify main diagonal (remove self-loops)
-A(2:n+1:end) = 1; % ensure connectedness
-A = (A + A')/2; % symmetrize A
-
+% % An adjacency matrix for a connected weighted undirected graph with n nodes
+% A = rand(n,n);
+% A = (A > 0.6325) .* A; % sparsify
+% A(1:n+1:end) = 0; % nullify main diagonal (remove self-loops)
+% A(2:n+1:end) = 1; % ensure connectedness
+% A = (A + A')/2; % symmetrize A
 
 % Some other test examples
 
@@ -36,15 +37,15 @@ A = (A + A')/2; % symmetrize A
 %       0 0 0 1 0 1
 %       0 0 0 1 1 0 ];
   
- A = [ 0 1 1 1 0 0 0 0 0
-       1 0 1 1 0 0 0 0 0
-       1 1 0 1 0 0 0 0 0
-       1 1 1 0 1 0 0 0 0
-       0 0 0 1 0 1 0 0 0
-       0 0 0 0 1 0 1 1 1
-       0 0 0 0 0 1 0 1 1
-       0 0 0 0 0 1 1 0 1
-       0 0 0 0 0 1 1 1 0 ];
+A = [ 0 1 1 1 0 0 0 0 0
+      1 0 1 1 0 0 0 0 0
+      1 1 0 1 0 0 0 0 0
+      1 1 1 0 1 0 0 0 0
+      0 0 0 1 0 1 0 0 0
+      0 0 0 0 1 0 1 1 1
+      0 0 0 0 0 1 0 1 1
+      0 0 0 0 0 1 1 0 1
+      0 0 0 0 0 1 1 1 0 ];
 
 n = length(A); % number of nodes
 
@@ -135,10 +136,19 @@ cr_Kirchhoff = Alg_04_14_KirchhoffCriticality(A)
   
 Cr_st = Alg_04_15_SpanningTreeEdgeCriticality(A)
 
-%% TEST 16 Alg_04_16_BagOfPathsCriticality(A, C, theta)
+%% TEST 16 Alg_04_16_BagOfPathsNodeCriticality(A, C, theta)
 
-theta = 1;
+theta = 2;
 C = 1./(A + eps); % compute cost matrix
 
-cr = Alg_04_16_BagOfPathsCriticality(A, C, theta)
+cr = Alg_04_16_BagOfPathsNodeCriticality(A, C, theta)
+
+%% TEST 17 Alg_04_17_BagOfPathsEdgeCriticality(A, C, theta, Edg)
+
+theta = 3;
+C = 1./(A + eps); % compute cost matrix
+[row,col,~] = find(A); % compute edge criticality for all edges of G
+Edg = [row,col];
+Cr = Alg_04_17_BagOfPathsEdgeCriticality(A, C, theta, Edg)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
