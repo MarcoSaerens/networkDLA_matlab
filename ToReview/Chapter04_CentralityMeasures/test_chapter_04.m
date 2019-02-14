@@ -29,13 +29,6 @@ rng(72) % set seed of random generator
 % A = (A + A')/2; % symmetrize A
 
 % Some other test examples
-
-% A = [ 0 1 1 0 0 0
-%       1 0 1 0 0 0
-%       1 1 0 1 0 0
-%       0 0 1 0 1 1
-%       0 0 0 1 0 1
-%       0 0 0 1 1 0 ];
   
 A = [ 0 1 1 1 0 0 0 0 0
       1 0 1 1 0 0 0 0 0
@@ -53,7 +46,7 @@ n = length(A); % number of nodes
 e = ones(n, 1); % vector of ones
 I = eye(n,n); % identity matrix
 H = I - e*e'/n; % centering matrix
-eps = 1.0e-100 % precision
+eps = 1.0e-100; % precision
 
 sprad = abs(eigs(A, 1)); % spectral radius of A
 

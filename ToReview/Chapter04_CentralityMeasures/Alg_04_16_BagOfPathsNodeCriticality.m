@@ -47,9 +47,9 @@ eps = 10e-50; % precision
 d = A * e; % the outdegree matrix
 Dinv = diag(1./d); % inverse of diagonal degree matrix 
 
-W = exp(-theta*C); % the auxiliary matrix W in the book
-% Pref = Dinv * A; % the reference transition probabilities matrix
-% W = Pref .* exp(-theta*C); % an alternative: the auxiliary matrix W in the Neurosomputing paper
+% W = exp(-theta*C); % the auxiliary matrix W in the book
+Pref = Dinv * A; % the reference transition probabilities matrix
+W = Pref .* exp(-theta*C); % an alternative: the auxiliary matrix W in the Neurosomputing paper
 
 sr = abs( eigs(W,1,'LM') ); % compute spectral radius of matrix W
 if sr < (1 - eps)

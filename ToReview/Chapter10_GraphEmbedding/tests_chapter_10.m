@@ -8,19 +8,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % number of elements for tests
-n = 5;
+n = 6;
 
 % utilities
 e = ones(n, 1);
 I = eye(n);
 H = I - e*e'/n;
 
-%% Test 1
-
-% Coordinate matrix
+% Generate some coordinate matrix
 X_init = rand(n, 2);
-% Covariance matrix 
+% Inner product matrix or kernel
 K_init = H*X_init*X_init'*H;
+
+%% Test 1
 
 % TEST Alg_10_01_KernelPrincipalComponentAnalysis(K, p)
 Alg_10_01_KernelPrincipalComponentAnalysis(K_init, 2)
@@ -30,8 +30,8 @@ Alg_10_01_KernelPrincipalComponentAnalysis(K_init, 2)
 % Euclidean distance matrix 
 D_init = sqrt( diag(K_init)*e' + e*diag(K_init)' - 2*K_init );
 
-% TEST Alg_10_02_ClassicalMultidimensionalScaling(D, p)
-Alg_10_02_ClassicalMultidimensionalScaling(D_init, 2)
+% TEST Alg_10_02_ClassicalMultidimensionalScalingSylvain(D, p)
+Alg_10_02_ClassicalMultidimensionalScalingSylvain(D_init, 3)
 
 %% Test 3
 

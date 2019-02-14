@@ -37,6 +37,8 @@ if p > n
     error('The number of kept dimensions must be less or equal to the number of dimensions.');
 end
 
+eps = 10e-8; % precision for relevant eigenvalues
+
 %% Algorithm 
 
 % Compute the centering matrix
@@ -46,17 +48,18 @@ H = eye(n) - ones(n)/n;
 D_2 = D .* D;
 
 % Compute the inner products matrix from squared distances
-K = -1/2 * H * D_2 * H;
+K = -(1/2) * H * D_2 * H;
 
 % Compute the p dominant eigenvectors of K
 [U, Lambda] = eigs(K, p);
 
 % Sort the eignevectors and eigenvalues in decreasing order of eigenvalue
-[lamdba, index] = sort(diag(Lambda), 'descend');
-Lambda = diag(lamdba);
-U = U(:, index);
+[lambda, index] = sort(diag(Lambda), 'descend');
+lambda(lambda < eps) = 0; % remove negative eigenvalues - corresponding coordinates will be 0
+Lambda = diag(lambda);
+U = U(:,index);
 
-% Stack the coordinate vectors in X
-X = U * sqrt(Lambda);
+% Stack the coordinate vectors in data matrix X (a n x p matrix)
+X = real( U * sqrt(Lambda) );
 
 end
