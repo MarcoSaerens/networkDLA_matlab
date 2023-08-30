@@ -43,9 +43,8 @@ e = ones(n, 1);
 E = ones(n);
 I = eye(n);
 E_div_n = E/n;
-H = I - E_div_n;
 
-% Diagonal matrices of degree and inverse sqrt degree
+% Degree vector, diagonal degree matrix and inverse sqrt degree matrix
 d = A*e;
 Diag_d = diag(d);
 Diag_d_invSqrt = diag(1 ./ sqrt(d));
@@ -60,7 +59,10 @@ L = Diag_d - A ;
 L_plus = (L + E_div_n)^(-1) - E_div_n;
 
 % Commute-time kernel matrix
-K.CT = L_plus; 
+K.CT = L_plus;
+
+% Centering matrix
+H = I - E_div_n;
 
 % "Standardized" modularity matrix
 M = Diag_d_invSqrt * ( A - (d*d'/vol) ) * Diag_d_invSqrt; 

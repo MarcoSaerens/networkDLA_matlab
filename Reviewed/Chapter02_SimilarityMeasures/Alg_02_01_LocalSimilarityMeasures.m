@@ -13,7 +13,7 @@ function sim = Alg_02_01_LocalSimilarityMeasures(A, i, k)
 % INPUT:
 % -------
 % - A : the (n x n) unweighted adjacency matrix of an undirected graph G.
-% - i, k : node indices to compare.
+% - i, k : indices of compared nodes.
 %
 % OUTPUT:
 % -------
@@ -48,9 +48,9 @@ end
 
 %% Algorithm
 
-p = sum( A(i,:).*A(k,:));
-q = sum( A(i,:).*(1 - A(k,:)) );
-r = sum( (1 - A(i,:)).*A(k,:) );
+p = sum( A(i,:).*A(k,:) ); % common neighbors
+q = sum( A(i,:).*(1 - A(k,:)) ); % neighbors only to i
+r = sum( (1 - A(i,:)).*A(k,:) ); % neighbors only to k
 
 sim.direct = A(i,k); % direct similarity
 sim.common = p; % common neighbors score

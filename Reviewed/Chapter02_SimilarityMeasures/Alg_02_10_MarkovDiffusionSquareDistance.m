@@ -75,7 +75,7 @@ H = I - (e*e')/n;
 Z_t = zeros(n);
 P_pow_t = eye(n);
 for i = 1:t
-    P_pow_t = P*P_pow_t;
+    P_pow_t = P*P_pow_t; % Next power of P to be added
     Z_t = Z_t + P_pow_t;
 end
 Z_t = Z_t / t;
