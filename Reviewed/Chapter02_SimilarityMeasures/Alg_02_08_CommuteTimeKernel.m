@@ -1,4 +1,4 @@
-function K = Alg_02_08_CommuteTimeKernel(A)
+function output = Alg_02_08_CommuteTimeKernel(A)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -17,9 +17,9 @@ function K = Alg_02_08_CommuteTimeKernel(A)
 %
 % OUTPUT:
 % -------
-% - K : a structure containing :
-%           K.CT  - the (n x n) commute-time kernel matrix.
-%           K.CCT - the (n x n) corrected commute-time kernel matrix.
+% - output : a structure containing :
+%           output.K_CT  - the (n x n) commute-time kernel matrix.
+%           output.K_CCT - the (n x n) corrected commute-time kernel matrix.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -59,7 +59,7 @@ L = Diag_d - A ;
 L_plus = (L + E_div_n)^(-1) - E_div_n;
 
 % Commute-time kernel matrix
-K.CT = L_plus;
+output.K_CT = L_plus;
 
 % Centering matrix
 H = I - E_div_n;
@@ -68,7 +68,7 @@ H = I - E_div_n;
 M = Diag_d_invSqrt * ( A - (d*d'/vol) ) * Diag_d_invSqrt; 
 
 % Corrected commute-time kernel matrix
-K.CCT = H * Diag_d_invSqrt * M * (I - M)^(-1) * M * Diag_d_invSqrt * H;
+output.K_CCT = H * Diag_d_invSqrt * M * (I - M)^(-1) * M * Diag_d_invSqrt * H;
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

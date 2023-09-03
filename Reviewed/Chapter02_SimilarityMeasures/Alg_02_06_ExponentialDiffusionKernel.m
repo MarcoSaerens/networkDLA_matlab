@@ -1,4 +1,4 @@
-function K = Alg_02_06_ExponentialDiffusionKernel(A, alpha)
+function output = Alg_02_06_ExponentialDiffusionKernel(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -20,10 +20,10 @@ function K = Alg_02_06_ExponentialDiffusionKernel(A, alpha)
 %
 % OUTPUT:
 % -------
-% - K : a structure containing :
-%           K.ED  - the (n x n) exponential diffusion kernel matrix, based
+% - output : a structure containing :
+%           output.K_ED  - the (n x n) exponential diffusion kernel matrix, based
 %                   on matrix exponential.
-%           K.LED - the (n x n) Laplacian exponential diffusion kernel
+%           output.K_LED - the (n x n) Laplacian exponential diffusion kernel
 %                   matrix.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,9 +55,9 @@ Diag_d = diag( A*ones(n,1) );
 L = Diag_d - A;
 
 % Exponential diffusion kernel matrix
-K.ED = expm( alpha*A );
+output.K_ED = expm( alpha*A );
 
 % Laplacian Exponential diffusion kernel matrix
-K.LED = expm( -alpha*L );
+output.K_LED = expm( -alpha*L );
 
 end

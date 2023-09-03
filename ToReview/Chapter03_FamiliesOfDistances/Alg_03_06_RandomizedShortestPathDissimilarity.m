@@ -1,4 +1,4 @@
-function D = Alg_03_06_RandomizedShortestPathDissimilarity(A, C, theta)
+function D_RSP = Alg_03_06_RandomizedShortestPathDissimilarity(A, C, theta)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -20,7 +20,7 @@ function D = Alg_03_06_RandomizedShortestPathDissimilarity(A, C, theta)
 % 
 % OUTPUT:
 % -------
-% - D : the (n x n) randomized shortest-path dissimilarity matrix.
+% - D_RSP : the (n x n) randomized shortest-path dissimilarity matrix.
 %       containing the pairwise distances between nodes.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +68,7 @@ CdotW(isnan(CdotW)) = 0;
 S = (Z*CdotW*Z) ./ Z;
 
 % The randomized shortest path dissimilarity matrix for hitting paths
-D = (S + S' - e*(diag(S))' - diag(S)*e') / 2;
+D_RSP = (S + S' - e*(diag(S))' - diag(S)*e') / 2;
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,4 @@
-function st = Alg_02_10_MarkovDiffusionSquareDistance(A, w, t)
+function output = Alg_02_10_MarkovDiffusionSquareDistance(A, w, t)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -23,14 +23,14 @@ function st = Alg_02_10_MarkovDiffusionSquareDistance(A, w, t)
 %
 % OUTPUT:
 % -------
-% - st : a structure containing :
-%           st.D_MD  - the (n x n) Markov diffusion squared distances
+% - output : a structure containing :
+%           output.D_MD  - the (n x n) Markov diffusion squared distances
 %                      matrix, original version.
-%           st.D_MDA - the (n x n) Markov diffusion squared distances
+%           output.D_MDA - the (n x n) Markov diffusion squared distances
 %                      matrix, time-averaged version.
-%           st.K_MD  - the (n x n) Markov diffusion kernel matrix,
+%           output.K_MD  - the (n x n) Markov diffusion kernel matrix,
 %                      original version.
-%           st.K_MDA - the (n x n) Markov diffusion kernel matrix,
+%           output.K_MDA - the (n x n) Markov diffusion kernel matrix,
 %                      time-averaged version.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,17 +85,17 @@ Diag_w = diag(w);
 
 % The original version of Markov diffusion squared distances matrix
 Pt_Dw_Pt = P_pow_t * Diag_w * P_pow_t';
-st.D_MD = diag(Pt_Dw_Pt)*e' + e*diag(Pt_Dw_Pt)' - 2*Pt_Dw_Pt;
+output.D_MD = diag(Pt_Dw_Pt)*e' + e*diag(Pt_Dw_Pt)' - 2*Pt_Dw_Pt;
 
 % The time-averaged version of Markov diffusion squared distances matrix
 Zt_Dw_Zt = Z_t * Diag_w * Z_t';
-st.D_MDA = diag(Zt_Dw_Zt)*e' + e*diag(Zt_Dw_Zt)' - 2*Zt_Dw_Zt;
+output.D_MDA = diag(Zt_Dw_Zt)*e' + e*diag(Zt_Dw_Zt)' - 2*Zt_Dw_Zt;
 
 % The original version of centered Markov diffusion kernel matrix
-st.K_MD = H * Pt_Dw_Pt * H;
+output.K_MD = H * Pt_Dw_Pt * H;
 
 % The time-averaged version of centered Markov diffusion kernel matrix
-st.K_MDA = H * Zt_Dw_Zt * H;
+output.K_MDA = H * Zt_Dw_Zt * H;
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

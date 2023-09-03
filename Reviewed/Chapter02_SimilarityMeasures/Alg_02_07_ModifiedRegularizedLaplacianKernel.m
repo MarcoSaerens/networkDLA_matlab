@@ -1,4 +1,4 @@
-function K = Alg_02_07_ModifiedRegularizedLaplacianKernel(A, alpha, gamma)
+function K_MRL = Alg_02_07_ModifiedRegularizedLaplacianKernel(A, alpha, gamma)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -21,7 +21,7 @@ function K = Alg_02_07_ModifiedRegularizedLaplacianKernel(A, alpha, gamma)
 % 
 % OUTPUT:
 % -------
-% - K : The (n x n) modified regularized Laplacian kernel matrix.
+% - K_MRL : The (n x n) modified regularized Laplacian kernel matrix.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -58,7 +58,7 @@ Diag_d = diag( A*ones(n, 1) );
 L_gamma = gamma*Diag_d - A ;
 
 % The modified regularized Laplacian kernel matrix
-K = (eye(n) + alpha*L_gamma)^(-1);
+K_MRL = (eye(n) + alpha*L_gamma)^(-1);
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
