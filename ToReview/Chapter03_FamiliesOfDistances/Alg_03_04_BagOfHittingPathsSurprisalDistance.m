@@ -21,7 +21,7 @@ function D_h = Alg_03_04_BagOfHittingPathsSurprisalDistance(Pi_h)
 % OUTPUT:
 % -------
 % - D_h : The (n x n) bag-of-hitting-paths surprisal distance matrix
-%       containing the pairwise distances between nodes.
+%         containing the pairwise distances between nodes.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

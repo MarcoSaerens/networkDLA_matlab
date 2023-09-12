@@ -41,7 +41,7 @@ if ~isequal(A, A')
     error('The adjacency matrix is not symmetric.')
 end
 
-% Check if binary matrix
+% Check if matrix is binary
 if ~isequal(A, (A > 0))
     error('The adjacency matrix is not binary.')
 end

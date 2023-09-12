@@ -1,7 +1,7 @@
 function D_LF = Alg_03_01_LogarithmicForestDistance(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Authors: Maxime Duyck revised by Guillaume Guex (2017).
+% Authors: Maxime Duyck revised by Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
@@ -40,7 +40,7 @@ end
 
 %% Algorithm 
 
-% The vector of ones and the idendity matrix
+% The vector of ones and the identity matrix
 e = ones(n,1);
 I = eye(n); 
 

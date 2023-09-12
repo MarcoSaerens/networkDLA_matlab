@@ -15,7 +15,7 @@ function K_BoP = Alg_03_08_BagOfPathsCovariance(C, P_ref, theta)
 % - C : the (n x n) adjacency matrix associated to a weighted, strongly
 %       connected graph,containing affinities.
 % - P_ref : the (n x n) reference transition probabilities matrix.
-% - theta : a strincly positive parameter controlling the degree of 
+% - theta : a strictly positive parameter controlling the degree of 
 %           randomness.
 %
 % OUTPUT:
