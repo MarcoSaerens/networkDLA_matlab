@@ -42,7 +42,7 @@ D(1:n+1:end) = 0;
 for t = 1:n % enumerate intermediate nodes
     for i = 1:n % enumerate starting nodes
         for j = 1:n % enumerate ending nodes
-            D(i,j) = min( D(i,j), (D(i,t) + D(t,j)) );
+            D(i,j) = min( D(i,j), (D(i,t) + D(t,j)) ); % recompute distances
         end
     end
 end

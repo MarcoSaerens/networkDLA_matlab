@@ -1,4 +1,4 @@
-function D = Alg_03_04_BagOfHittingPathsSurprisalDistance(Pi_h)
+function D_h = Alg_03_04_BagOfHittingPathsSurprisalDistance(Pi_h)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -20,8 +20,8 @@ function D = Alg_03_04_BagOfHittingPathsSurprisalDistance(Pi_h)
 % 
 % OUTPUT:
 % -------
-% - D : The (n x n) bag-of-hitting-paths surprisal distance matrix
-%       containing the pairwise distances between nodes.
+% - D_h : The (n x n) bag-of-hitting-paths surprisal distance matrix
+%         containing the pairwise distances between nodes.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -37,13 +37,13 @@ end
 %% Algorithm 
 
 % Take elementwise logarithm 
-D = -log(Pi_h);
+D_h = -log(Pi_h);
 
 % Symmetrize the matrix 
-D = (D + D') / 2;
+D_h = (D_h + D_h') / 2;
 
 % Put diagonal to zero
-D = D - diag(diag(D));
+D_h = D_h - diag(diag(D_h));
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

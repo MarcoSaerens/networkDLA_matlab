@@ -49,12 +49,12 @@ end
 
 % Check if abs has the correct length
 if length(abs) ~= n
-    error('The set of absorbing nodes do not contain all nodes')
+    error('The set of absorbing nodes vector is of incorrect length')
 end
 
 % Check if binary vector 
 if ~isequal(abs, (abs > 0))
-    error('The set of absorbing nodes is not binary')
+    error('The set of absorbing nodes vector is not binary')
 end
 
 %% Algorithm 

@@ -1,7 +1,7 @@
-function D = Alg_03_01_LogarithmicForestDistance(A, alpha)
+function D_LF = Alg_03_01_LogarithmicForestDistance(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Authors: Maxime Duyck revised by Guillaume Guex (2017).
+% Authors: Maxime Duyck revised by Guillaume Guex (2017).
 %
 % Source: Francois Fouss, Marco Saerens and Masashi Shimbo (2016).
 %         "Algorithms and models for network data and link analysis". 
@@ -17,7 +17,7 @@ function D = Alg_03_01_LogarithmicForestDistance(A, alpha)
 % 
 % OUTPUT:
 % -------
-% - D: The (n x n) logarithmic forest distance matrix
+% - D_LF: The (n x n) logarithmic forest distance matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments 
@@ -40,7 +40,7 @@ end
 
 %% Algorithm 
 
-% The vector of ones and the idendity matrix
+% The vector of ones and the identity matrix
 e = ones(n,1);
 I = eye(n); 
 
@@ -61,6 +61,6 @@ else
 end
 
 % Logarithmic forest distance matrix 
-D = diag(S)*e' + e*(diag(S))' - 2*S;
+D_LF = diag(S)*e' + e*(diag(S))' - 2*S;
 
 end

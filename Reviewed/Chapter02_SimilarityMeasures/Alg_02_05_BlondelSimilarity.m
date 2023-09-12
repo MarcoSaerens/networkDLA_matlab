@@ -62,7 +62,7 @@ while ~convergence
     K = K / norm(K,'fro');
     
     i = i + 1;
-    if (~mod(i,2)) && (max(max( abs(K - K_old) )) < threshold) % convergence condition
+    if (~mod(i,2)) && (max( max( abs(K - K_old) ) ) < threshold) % convergence condition
         convergence = 1;
     end
 end

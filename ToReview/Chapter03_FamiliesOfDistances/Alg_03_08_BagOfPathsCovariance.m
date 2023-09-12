@@ -1,4 +1,4 @@
-function K = Alg_03_08_BagOfPathsCovariance(C, P_ref, theta)
+function K_BoP = Alg_03_08_BagOfPathsCovariance(C, P_ref, theta)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -15,13 +15,13 @@ function K = Alg_03_08_BagOfPathsCovariance(C, P_ref, theta)
 % - C : the (n x n) adjacency matrix associated to a weighted, strongly
 %       connected graph,containing affinities.
 % - P_ref : the (n x n) reference transition probabilities matrix.
-% - theta : a strincly positive parameter controlling the degree of 
+% - theta : a strictly positive parameter controlling the degree of 
 %           randomness.
 %
 % OUTPUT:
 % -------
-% - K : the bag of paths covariance matrix between pairs of nodes
-%       containing the elements K(k, l) = cov(k, l)
+% - K_BoP : the bag of paths covariance matrix between pairs of nodes
+%       containing the elements K_BoP(k, l) = cov(k, l)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -60,7 +60,7 @@ z_dotdot = sum(z_dotk);
 % The partition function 
 z_bar = z_dotdot - n;
 
-K = zeros(n, n);
+K_BoP = zeros(n, n);
 for k = 1:n
     for l = k:n
         if l == k
@@ -73,10 +73,10 @@ for k = 1:n
         p_3 = z_kdot(l) * (z_dotk(k) - 1) * (Z(k, l) - delta);
         p_4 = (1/z_bar) * ( z_kdot(k) * z_kdot(l) * (z_dotk(k)-1) * (z_dotk(l)-1) );
         
-        K(k, l) = (1/z_bar) * (p_1 + p_2 + p_3 - p_4);
+        K_BoP(k, l) = (1/z_bar) * (p_1 + p_2 + p_3 - p_4);
 
         
-        K(l, k) = K(k, l);
+        K_BoP(l, k) = K_BoP(k, l);
     end
 end
 

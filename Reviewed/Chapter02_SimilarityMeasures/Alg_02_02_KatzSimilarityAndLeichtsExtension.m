@@ -1,4 +1,4 @@
-function K = Alg_02_02_KatzSimilarityAndLeichtsExtension(A, alpha)
+function output = Alg_02_02_KatzSimilarityAndLeichtsExtension(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -8,8 +8,8 @@ function K = Alg_02_02_KatzSimilarityAndLeichtsExtension(A, alpha)
 %         "Algorithms and models for network data and link analysis". 
 %         Cambridge University Press.
 %
-% Description: Computing the Katz similarity matrix and his Leicht's 
-%              extension of an undirected and weighted graph.
+% Description: Computing the Katz similarity matrix and Leicht's 
+%              extension of it, for an undirected weighted graph.
 %
 % INPUT:
 % -------
@@ -18,9 +18,9 @@ function K = Alg_02_02_KatzSimilarityAndLeichtsExtension(A, alpha)
 % 
 % OUTPUT:
 % -------
-% - K : a structure containing :
-%           K.Katz - the (n x n) Katz similarity matrix.
-%           K.Leicht - the (n x n) Leicht's extension - the 
+% - output : a structure containing :
+%           output.K_Katz - the (n x n) Katz similarity matrix.
+%           output.K_Leicht - the (n x n) Leicht's extension - the 
 %                      degree-weighted Katz similarity matrix.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,13 +53,13 @@ I = eye(n);
 Aux = (I - alpha*A)^(-1); 
 
 % Katz similarity matrix 
-K.Katz = Aux - I;
+output.K_Katz = Aux - I;
 
 % the invers diagonal degree matrix
-Diag_d_inv = diag(A*ones(n,1))^(-1);
+Diag_d_inv = diag( A*ones(n,1) )^(-1);
 
 % Leicht's extension 
-K.Leicht = Diag_d_inv * Aux * Diag_d_inv;
+output.K_Leicht = Diag_d_inv * Aux * Diag_d_inv;
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

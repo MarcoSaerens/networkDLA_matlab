@@ -1,4 +1,4 @@
-function sim = Alg_02_01_LocalSimilarityMeasures(A, i, k)
+function output = Alg_02_01_LocalSimilarityMeasures(A, i, k)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Authors: Guillaume Guex (2017).
@@ -13,19 +13,19 @@ function sim = Alg_02_01_LocalSimilarityMeasures(A, i, k)
 % INPUT:
 % -------
 % - A : the (n x n) unweighted adjacency matrix of an undirected graph G.
-% - i, k : node indices to compare.
+% - i, k : indices of compared nodes.
 %
 % OUTPUT:
 % -------
-% - sim : a structure containing various scalar similarities:
-%              sim.direct  - direct similarity.
-%              sim.common  - common neighbors score.
-%              sim.pref    - preferential attachment index.
-%              sim.cos     - cosine coefficient.
-%              sim.Jaccard - Jaccard index.
-%              sim.Dice    - Dice coefficient.
-%              sim.prohub  - hub promoted index.
-%              sim.dehub   - hub depressed index.
+% - output : a structure containing various scalar similarities:
+%              output.sim_direct  - direct similarity.
+%              output.sim_common  - common neighbors score.
+%              output.sim_pref    - preferential attachment index.
+%              output.sim_cos     - cosine coefficient.
+%              output.sim_Jaccard - Jaccard index.
+%              output.sim_Dice    - Dice coefficient.
+%              output.sim_prohub  - hub promoted index.
+%              output.sim_dehub   - hub depressed index.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Checks of arguments
@@ -41,25 +41,25 @@ if ~isequal(A, A')
     error('The adjacency matrix is not symmetric.')
 end
 
-% Check if binary matrix
+% Check if matrix is binary
 if ~isequal(A, (A > 0))
     error('The adjacency matrix is not binary.')
 end
 
 %% Algorithm
 
-p = sum( A(i,:).*A(k,:));
-q = sum( A(i,:).*(1 - A(k,:)) );
-r = sum( (1 - A(i,:)).*A(k,:) );
+p = sum( A(i,:).*A(k,:) ); % common neighbors
+q = sum( A(i,:).*(1 - A(k,:)) ); % neighbors only to i
+r = sum( (1 - A(i,:)).*A(k,:) ); % neighbors only to k
 
-sim.direct = A(i,k); % direct similarity
-sim.common = p; % common neighbors score
-sim.pref = (p + q)*(p + r); % preferential attachment index
-sim.cos = p / sqrt( (p + q)*(p + r) ); % cosine coefficient
-sim.Jaccard = p / (p + q + r); % Jaccard index
-sim.Dice = 2*p / (2*p + q + r); % Dice coefficient
-sim.prohub = p / min(p + q, p + r); % hub promoted index
-sim.dehub = p / max(p + q, p + r); % hub depressed index
+output.sim_direct = A(i,k); % direct similarity
+output.sim_common = p; % common neighbors score
+output.sim_pref = (p + q)*(p + r); % preferential attachment index
+output.sim_cos = p / sqrt( (p + q)*(p + r) ); % cosine coefficient
+output.sim_Jaccard = p / (p + q + r); % Jaccard index
+output.sim_Dice = 2*p / (2*p + q + r); % Dice coefficient
+output.sim_prohub = p / min(p + q, p + r); % hub promoted index
+output.sim_dehub = p / max(p + q, p + r); % hub depressed index
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

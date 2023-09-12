@@ -1,4 +1,4 @@
-function K = Alg_02_09_RegularizedCommuteTimeKernel(A, alpha)
+function output = Alg_02_09_RegularizedCommuteTimeKernel(A, alpha)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -18,9 +18,9 @@ function K = Alg_02_09_RegularizedCommuteTimeKernel(A, alpha)
 %
 % OUTPUT:
 % -------
-% - K : a structure containing :
-%           K.RCT  - the (n x n) regularized commute-time kernel matrix.
-%           K.RWR - the (n x n) random walk with restart similarity matrix.
+% - output : a structure containing :
+%           output.K_RCT  - the (n x n) regularized commute-time kernel matrix.
+%           output.K_RWR - the (n x n) random walk with restart similarity matrix.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,10 +48,10 @@ end
 Diag_d = diag( A*ones(n, 1) );
 
 % Regularized commute-time kernel matrix
-K.RCT = (Diag_d - alpha*A)^(-1);
+output.K_RCT = (Diag_d - alpha*A)^(-1);
 
 % Random walk with restart similarity matrix
-K.RWR = K.RCT * Diag_d;
+output.K_RWR = output.K_RCT * Diag_d;
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

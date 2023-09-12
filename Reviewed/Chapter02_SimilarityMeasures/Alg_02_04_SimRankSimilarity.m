@@ -53,7 +53,7 @@ d = A'*ones(n,1);
 % Initialization of Q
 Q = zeros(n);
 for j = 1:n
-    if d(j) > 0
+    if d(j) > 0 % Check for predecessors
         Q(:,j) = A(:,j) / d(j);
     end
 end

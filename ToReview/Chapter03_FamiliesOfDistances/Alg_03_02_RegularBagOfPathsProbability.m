@@ -48,7 +48,7 @@ end
 
 %% Algorithm 
 
-% The vector of ones and the idendity matrix
+% The vector of ones and the identity matrix
 e = ones(n, 1);
 I = eye(n); 
 

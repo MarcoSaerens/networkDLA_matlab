@@ -1,4 +1,4 @@
-function D = Alg_03_05_BagOfHittingPathsFreeEnergyDistance(A, C, theta)
+function D_phi = Alg_03_05_BagOfHittingPathsFreeEnergyDistance(A, C, theta)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -20,7 +20,7 @@ function D = Alg_03_05_BagOfHittingPathsFreeEnergyDistance(A, C, theta)
 % 
 % OUTPUT:
 % -------
-% - D : the (n x n) bag-of-hitting-paths free-energy distance matrix 
+% - D_phi : the (n x n) bag-of-hitting-paths free-energy distance matrix 
 %       containing the pairwise distances between node
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -73,10 +73,10 @@ Z_h = Z * (Diag_Z^(-1));
 Phi = -log(Z_h) / theta;
 
 % Symmetrize the matrix 
-D = (Phi + Phi') / 2;
+D_phi = (Phi + Phi') / 2;
 
 % Put diagonal to zero
-D = D - diag(diag(D));
+D_phi = D_phi - diag(diag(D_phi));
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

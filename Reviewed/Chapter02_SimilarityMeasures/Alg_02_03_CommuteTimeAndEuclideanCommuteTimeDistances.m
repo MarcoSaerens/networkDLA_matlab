@@ -1,4 +1,4 @@
-function D = Alg_02_03_CommuteTimeAndEuclideanCommuteTimeDistances(A)
+function output = Alg_02_03_CommuteTimeAndEuclideanCommuteTimeDistances(A)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -19,14 +19,14 @@ function D = Alg_02_03_CommuteTimeAndEuclideanCommuteTimeDistances(A)
 %
 % OUTPUT:
 % -------
-% - D : a structure containing :
-%           D.CT   - a (n x n) matrix containing the average
+% - output : a structure containing :
+%           output.D_CT   - a (n x n) matrix containing the average
 %                    commute-time distances.
-%           D.ECT  - a (n x n) matrix containing the Euclidean
+%           output.D_ECT  - a (n x n) matrix containing the Euclidean
 %                    commute-time distances.
-%           D.CCT  - a (n x n) matrix containing the corrected
+%           output.D_CCT  - a (n x n) matrix containing the corrected
 %                    commute-time distances.
-%           D.CECT - a (n x n) matrix containing the corrected Euclidean
+%           output.D_CECT - a (n x n) matrix containing the corrected Euclidean
 %                    commute-time distances.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,20 +71,20 @@ diag_L_plus = diag(L_plus);
 CT = vol*(diag_L_plus*e' + e*diag_L_plus' - 2*L_plus);
 CT(isnan(CT)) = 0;
 CT(isinf(CT)) = myMax;
-D.CT = CT;
+output.D_CT = CT;
 
 % Euclidean commute-time distance
-D.ECT = CT.^(0.5);
+output.D_ECT = CT.^(0.5);
 
 % Corrected commute-time distance
 A_norm = Diag_d_inv * A * Diag_d_inv;
 diag_A_norm = diag(A_norm);
 CCT = CT - vol*(Diag_d_inv*E + E*Diag_d_inv + diag_A_norm*e' + e*diag_A_norm' - 2*A_norm);
 CCT(1:n+1:end) = 0;
-D.CCT = CCT;
+output.D_CCT = CCT;
 
 % Corrected Euclidean commute-time distance
-D.CECT = CCT.^(0.5);
+output.D_CECT = CCT.^(0.5);
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
